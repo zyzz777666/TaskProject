@@ -1,7 +1,7 @@
 import argparse
 import Converted
 import Tracker
-import sys
+
 
 
 def main():
@@ -11,6 +11,5 @@ def main():
 
 if __name__ == "__main__":
     Converted.Convert.json_converted_to_dict('task.json')
-    Tracker.TaskTracker.add('dasfwqeqwr')
+    Tracker.TaskTracker.show_all_tasks(Tracker.TaskTracker.data)
     Converted.Convert.dict_converted_to_json('task.json')
-    main()
