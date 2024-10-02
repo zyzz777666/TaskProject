@@ -10,5 +10,8 @@ class Convert:
 
     @staticmethod
     def json_converted_to_dict(file):
-        with open(file, 'r', encoding='utf-8') as f:
-            TaskTracker.data = json.load(f)
+        try:
+            with open(file, 'r', encoding='utf-8') as f:
+                TaskTracker.data = json.load(f)
+        except:
+            Convert.dict_converted_to_json('task.json')
