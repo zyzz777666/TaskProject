@@ -11,6 +11,7 @@ class TaskTracker:
                 TaskTracker.data[str(id)] = {'task': task,
                                              'status': '',
                                              'time': time.ctime()}
+                print(f'Задача добавлена ее ID({id})')
 
     @staticmethod
     def update(id, task):

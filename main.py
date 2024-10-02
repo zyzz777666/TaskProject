@@ -1,8 +1,10 @@
 import argparse
 import Converted
 import Tracker
+import click
 
 
+@click.command()
 def main():
     start = int(input('Введите 1 что бы начать: '))
     if start == 1:
@@ -48,11 +50,10 @@ def main():
                 Tracker.TaskTracker.show_all_in_progress_done_tasks(Tracker.TaskTracker.data)
             elif command == 'save':
                 Converted.Convert.dict_converted_to_json('task.json')
-                print('Данные успешно сохранены')
+                click.echo('Данные успешно сохранены')
             elif command == 'quit':
                 Converted.Convert.dict_converted_to_json('task.json')
                 break
-
 
 
 if __name__ == "__main__":
