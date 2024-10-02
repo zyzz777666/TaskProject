@@ -42,7 +42,9 @@ class TaskTracker:
         if len(data) == 0:
             raise 'У вас нет задач'
         for task in data:
-            if data[task]['status'] == 'завершено':
+            if 'status' not in data[task]:
+                continue
+            elif data[task]['status'] == 'завершено':
                 print(f'ID[{task}]: {data[task]}')
                 print()
 
@@ -55,12 +57,14 @@ class TaskTracker:
                 print(f'ID[{task}]: {data[task]}')
                 print()
 
-    @classmethod
-    def show_all_in_progress_done_tasks(cls, data):
+    @staticmethod
+    def show_all_in_progress_done_tasks(data):
         if len(data) == 0:
             raise 'У вас нет задач'
         for task in data:
-            if data[task]['status'] == 'в процессе':
+            if 'status' not in data[task]:
+                continue
+            elif data[task]['status'] == 'в процессе':
                 print(f'ID[{task}]: {data[task]}')
                 print()
 
