@@ -38,7 +38,7 @@ def main():
                 Converted.Convert.json_converted_to_dict('task.json')
                 try:
                     Tracker.TaskTracker.status(input('Введите id таски: '),
-                                               input('Введите "IN_PROGRESS" или "DONE"').upper())
+                                               input('Введите "IN_PROGRESS" или "DONE": ').upper())
                 except ValueError:
                     print('Такой таски не сущесвует')
                 Converted.Convert.dict_converted_to_json('task.json')
