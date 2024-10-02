@@ -5,25 +5,28 @@ class TaskTracker:
     data = {}
 
     @classmethod
-    def add(cls, task: str):
+    def add(cls, task: str, description):
         for id in range(len(cls.data) + 1):
             if str(id) not in cls.data:
                 cls.data[str(id)] = {'task': task,
+                                     'description': description,
                                      'createdAt': time.ctime()}
 
                 print(f'Задача добавлена ее ID({id})')
 
     @classmethod
-    def update(cls, id, task):
+    def update(cls, id: int, task: str):
+        if not isinstance(id, int):
+            raise TypeError
         if str(id) not in cls.data:
-            raise 'Такой таски не сущесвует'
+            raise ValueError('Такой таски не сущесвует')
         cls.data[str(id)]['task'] = task
         cls.data[str(id)]['updatedAt'] = time.ctime()
 
     @classmethod
     def delete(cls, id):
         if str(id) not in cls.data:
-            raise 'Такой таски не сущесвует'
+            raise TypeError
         del cls.data[str(id)]
 
     @classmethod

@@ -26,11 +26,18 @@ def main():
             print()
 
             if command == 'add':
-                Tracker.TaskTracker.add(input('Введите таску: '))
+                Tracker.TaskTracker.add(input('Введите таску: '),
+                                        input('Введите описание: '))
             elif command == 'update':
-                Tracker.TaskTracker.update(input('Введите id таски: '), input('Введите таску: '))
+                try:
+                    Tracker.TaskTracker.update(int(input('Введите id таски: ')), input('Введите таску: '))
+                except TypeError:
+                    print('Введите целое число')
             elif command == 'del':
-                Tracker.TaskTracker.delete(input('Введите id таски: '))
+                try:
+                    Tracker.TaskTracker.delete(input('Введите id таски: '))
+                except TypeError:
+                    print('Введите целое число')
             elif command == 'show':
                 Tracker.TaskTracker.show_all_tasks(Tracker.TaskTracker.data)
             elif command == 'todo':
