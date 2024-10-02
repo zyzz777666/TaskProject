@@ -51,7 +51,7 @@ class TaskTracker:
         if len(data) == 0:
             raise 'У вас нет задач'
         for task in data:
-            if data[task]['status'] == '':
+            if 'status' not in data[task]:
                 print(f'ID[{task}]: {data[task]}')
                 print()
 
