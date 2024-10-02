@@ -13,5 +13,5 @@ class Convert:
         try:
             with open(file, 'r', encoding='utf-8') as f:
                 TaskTracker.data = json.load(f)
-        except:
+        except json.JSONDecodeError:
             Convert.dict_converted_to_json('task.json')
