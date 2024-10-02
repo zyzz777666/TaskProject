@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "taskproject"
+version = "0.1.0"
+description = ""
+authors = ["I <bumbum.bug@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
